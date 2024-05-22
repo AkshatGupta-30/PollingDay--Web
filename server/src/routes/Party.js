@@ -15,4 +15,14 @@ router.post("/registration", async (req, res)=> {
     }
 })
 
+router.get("/list", async (req, res) => {
+    try {
+        const response = await Party.find()
+        res.status(200).json({ response: response });
+    } catch (err) {
+        console.log("error: " + err);
+        res.status(500).json({ error: err.toString() });
+    }
+})
+
 module.exports = router
