@@ -12,6 +12,7 @@ const candidateSchema = new mongoose.Schema({
   contactNumber: {
     type: String,
     required: true,
+    unique: true
   },
   gender: {
     type: String,
@@ -21,6 +22,7 @@ const candidateSchema = new mongoose.Schema({
   aadhar: {
     type: String,
     required: true,
+    unique: true
   },
   mothersName: {
     type: String,
@@ -59,9 +61,9 @@ const candidateSchema = new mongoose.Schema({
     type: String,
     required: false
   },
-  facebook: { type: String },
-  twitter: { type: String },
-  instagram: { type: String },
+  facebook: { type: String, unique: true },
+  twitter: { type: String, unique: true },
+  instagram: { type: String, unique: true },
   photograph: {
     type: String,
     required: true

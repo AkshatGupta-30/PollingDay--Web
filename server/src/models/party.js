@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const partySchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   leaderName: {
     type: String,
@@ -15,7 +16,8 @@ const partySchema = new mongoose.Schema({
   },
   ideology: { type: String },
   symbol: {
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Symbol',
     required: false
   },
   numberOfMembers: {
@@ -27,9 +29,9 @@ const partySchema = new mongoose.Schema({
     ref: 'Candidate',
     required: true
   },
-  facebook: { type: String },
-  twitter: { type: String },
-  instagram: { type: String }
+  facebook: { type: String, unique: true },
+  twitter: { type: String, unique: true },
+  instagram: { type: String, unique: true }
 });
 
 const Party = mongoose.model('Party', partySchema);
