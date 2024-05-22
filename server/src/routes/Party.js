@@ -10,7 +10,7 @@ router.post("/registration", async (req, res)=> {
         res.status(200).json(savedParty)
         console.log(`Entry of '${savedParty.name}' saved successfully`)
     } catch (err) {
-        console.log(`Error in Saving Candidate : ${err}`)
+        console.log(`Error in Saving Party : ${err}`)
         res.status(500).json({error: err})
     }
 })
