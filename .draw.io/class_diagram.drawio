@@ -1,0 +1,36 @@
+<mxfile host="65bd71144e">
+    <diagram id="YORCDSmf9e38juqGVTJE" name="Page-1">
+        <mxGraphModel dx="498" dy="543" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2000" pageHeight="2000" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="16" value="Party" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
+                    <mxGeometry x="301" y="240" width="180" height="252" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="Name: string&#10;Leader Name: string&#10;Founded Year: date&#10;Headquarter Location: string&#10;&#10;No. of Members: int&#10;No. of Candidates: int&#10;Idealogy: string&#10;Manifesto: string&#10;&#10;Facebook Profile: url&#10;Twitter Profile: url&#10;Instagram Profile: url" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="16" vertex="1">
+                    <mxGeometry y="26" width="180" height="192" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="16" vertex="1">
+                    <mxGeometry y="218" width="180" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="+ method(type): type" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="16" vertex="1">
+                    <mxGeometry y="226" width="180" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="Candidates" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
+                    <mxGeometry x="520" y="240" width="180" height="444" as="geometry">
+                        <mxRectangle x="520" y="240" width="110" height="30" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="25" value="Name: string&#10;Date of Birth: date&#10;Contact Number: string&#10;Gender: string&#10;Aadhar Number: string&#10;&#10;Residential Address: string&#10;Mothers Name: string&#10;Fathers Name: string&#10;Family Members: int&#10;Maritial Status: bool&#10;&#10;Profession: string&#10;Criminal Record: List&lt;string&gt;&#10;Languages Known: List&lt;string&gt;&#10;Party Membership: string&#10;Vision and Goals: string&#10;&#10;Facebook Profile: url&#10;Twitter Profile: url&#10;Instagram Profile: url&#10;&#10;Photograph: url&#10;Signature: url&#10;&#10;isVoter: boolean" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="24" vertex="1">
+                    <mxGeometry y="26" width="180" height="384" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="24" vertex="1">
+                    <mxGeometry y="410" width="180" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="+ method(type): type" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="24" vertex="1">
+                    <mxGeometry y="418" width="180" height="26" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
