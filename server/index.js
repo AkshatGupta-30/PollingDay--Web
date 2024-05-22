@@ -6,10 +6,10 @@ const symbolRouter = require("./src/routes/Symbol")
 
 const app = express()
 app.use(bodyParser.json())
-app.use("/party", partyRouter)
+app.use("/parties", partyRouter)
 app.use("/symbols", symbolRouter) //TODO: Admin Control
 
-const port = process.env.port || 3000
+const port = process.env.port || 3001
 app.listen(port, () => {
     console.log(`Server running on port ${port}`)
 })
