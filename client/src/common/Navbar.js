@@ -2,9 +2,27 @@ import React, { Component } from "react";
 import "../css/Navbar.css";
 
 class Navbar extends Component {
+  pageRedirect = (index, content) => {
+    {/* //TODO: Side navigation drop down on links */}
+    const className = index === parseInt(this.props.active ?? -1) ? "active" : "inactive";
+    return (
+      <li key={index}>
+        <a href="." className={className}>
+          {content}
+        </a>
+      </li>
+    );
+  };
+
+  renderNavItems = () => {
+    const navItems = ["Parties", "Candidates", "Voting", "Results"];
+    return (navItems.map((item, index) => this.pageRedirect(index, item)));
+  }
+
   render() {
     return (
       <div id="header">
+        {/* //TODO: Handle click and pointer move of main-view */}
         <input type="checkbox" id="menuToggle" />
         <div className="navbar">
           <div className="logo">
@@ -13,48 +31,10 @@ class Navbar extends Component {
             </div>
             <a href=".">Polling Day</a>
           </div>
-          <ul className="links">
-            <li>
-              <a href="." className="inactive">
-                Parties
-              </a>
-            </li>
-            <li>
-              <a href="." className="inactive">
-                Candidates
-              </a>
-            </li>
-            {/* //TODO : Add Links to Items */}
-            <li>
-              <a href="." className="inactive">
-                Voting
-              </a>
-            </li>
-            <li>
-              <a href="." className="inactive">
-                Results
-              </a>
-            </li>
-          </ul>
+          <ul className="links">{this.renderNavItems()}</ul>
         </div>
         <div className="side-nav">
-          <ul className="links">
-            {/* //TODO: Side navigation drop down on links */}
-            <a href="." className="inactive">
-              Parties
-            </a>
-            {/* //TODO: Side navigation drop down on links */}
-            <a href="." className="inactive">
-              Candidates
-            </a>
-            {/* //TODO : Add Links to Items */}
-            <a href="." className="inactive">
-              Voting
-            </a>
-            <a href="." className="inactive">
-              Results
-            </a>
-          </ul>
+        <ul className="links">{this.renderNavItems()}</ul>
         </div>
       </div>
     );

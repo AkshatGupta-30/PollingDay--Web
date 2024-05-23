@@ -174,7 +174,7 @@ a {
         transform: translateY(-75vh);
         transition: 0.2s ease-in;
         z-index: 1;
-        position: fixed;
+        position: absolute;
         visibility: visible;
         width: 50vw;
         height: fit-content;
