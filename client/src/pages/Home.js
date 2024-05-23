@@ -23,7 +23,7 @@ function Home() {
             architecto quaerat tenetur autem odio ex maxime sed! Cum autem illum
             perferendis tenetur ad quisquam, amet ducimus consequuntur! Lorem
             ipsum dolor sit amet consectetur, adipisicing elit.
-            <a href="#" className="actionBtn">Get Started</a>
+            <NavLink to={"/"} className="actionBtn">Get Started</NavLink>
           </div>
         </div>
       </div>

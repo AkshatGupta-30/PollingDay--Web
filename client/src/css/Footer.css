@@ -17,6 +17,7 @@ footer .social-media {
 footer .social-media .social-icons {
     font-size: 30px;
     background-color: white;
+    color: black;
     padding: 8px;
     border-radius: 50%;
 }
