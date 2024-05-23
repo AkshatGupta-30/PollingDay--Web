@@ -1,15 +1,16 @@
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 import "../css/Navbar.css";
 
 class Navbar extends Component {
   pageRedirect = (index, content) => {
-    {/* //TODO: Side navigation drop down on links */}
+    // TODO: Side navigation drop down on links
     const className = index === parseInt(this.props.active ?? -1) ? "active" : "inactive";
     return (
       <li key={index}>
-        <a href="." className={className}>
+        <NavLink to={`/${content}`} className={className}>
           {content}
-        </a>
+        </NavLink>
       </li>
     );
   };
@@ -20,16 +21,16 @@ class Navbar extends Component {
   }
 
   render() {
+    // TODO: Handle click and pointer move of main-view
     return (
       <div id="header">
-        {/* //TODO: Handle click and pointer move of main-view */}
         <input type="checkbox" id="menuToggle" />
         <div className="navbar">
           <div className="logo">
             <div className="toggleMenu">
               <i className="bi bi-list"></i>
             </div>
-            <a href=".">Polling Day</a>
+            <NavLink to={"/"}>Polling Day</NavLink>
           </div>
           <ul className="links">{this.renderNavItems()}</ul>
         </div>

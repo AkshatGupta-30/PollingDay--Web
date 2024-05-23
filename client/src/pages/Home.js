@@ -2,6 +2,7 @@ import React from "react";
 import '../css/Home.css'
 import Navbar from '../common/Navbar'
 import Footer from '../common/Footer'
+import { NavLink } from "react-router-dom";
 
 function Home() {
   return <div>
@@ -48,11 +49,10 @@ function Home() {
       </div>
       <div className="divider"></div>
       <div className="lastRow">
-        <a href="." className="tabs">Parties</a>
-        <a href="." className="tabs">Candidates</a>
-        {/* //TODO : Add Links to Items */}
-        <a href="" className="tabs">Vote</a>
-        <a href="" className="tabs">Results</a>
+        <NavLink to={"/Parties"} className="tabs">Parties</NavLink>
+        <NavLink to={"/Candidates"} className="tabs">Candidates</NavLink>
+        <NavLink to={"/Voting"} className="tabs">Voting</NavLink>
+        <NavLink to={"/Results"} className="tabs">Results</NavLink>
       </div>
     </div>
     <Footer/>
