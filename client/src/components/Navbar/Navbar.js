@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-import "../css/Navbar.css";
+import "./Navbar.css";
 
 class Navbar extends Component {
   pageRedirect = (index, content) => {

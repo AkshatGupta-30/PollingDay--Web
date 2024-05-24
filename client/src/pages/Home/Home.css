@@ -34,7 +34,7 @@ body {
 
 .main-view::before {
     content: '';
-    background: url("../assets/images/bg_home_page.avif");
+    background: url("../../assets/images/bg_home_page.avif");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
