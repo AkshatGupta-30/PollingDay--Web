@@ -1,10 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Footer.css";
+import "./Footer.scss";
 
 function Footer() {
   return (
-    <div>
       <footer>
         <div className="social-media">
           <Link to="https://www.linkedin.com/in/akshatgupta30/" target="_blank" className="bi bi-linkedin social-icons"/>
@@ -15,11 +14,10 @@ function Footer() {
           />
           <Link to="https://x.com/Akshat_Gupta_30" target="_blank" className="bi bi-twitter-x social-icons"/>
         </div>
+        <div className="copyright">
+          Copyright &#169; 2024; Designed by <b>Akshat Gupta</b>
+        </div>
       </footer>
-      <div className="copyright">
-        Copyright &#169; 2024; Designed by <b>Akshat Gupta</b>
-      </div>
-    </div>
   );
 }
 
