@@ -54,45 +54,6 @@ main {
         grid-template-columns: repeat(4, 1fr);
         padding: 0 5rem 5rem 5rem;
         gap: 2.5rem;
-
-        .tabs {
-            background-color: rgba(245, 245, 245, 0.1);
-            @include flexing;
-            padding: 1rem;
-            border-radius: 2rem;
-            border: 2px solid $primary-color;
-            cursor: pointer;
-            &:hover {
-                background-color: rgba(245, 245, 245, 0.15);
-            }
-
-            .icon {
-                @include wh(6rem, 6rem);
-                fill: $svg-color;
-                font-size: 1rem;
-                margin: 0 0 0.75rem 0;
-                cursor: pointer;
-            }
-
-            .tabName {
-                font-size: 1rem;
-                font-weight: 900;
-                margin-bottom: 0.5rem;
-                text-align: center;
-                text-transform: uppercase;
-                letter-spacing: 1px;
-                color: $primary-color;
-                cursor: pointer;
-            }
-
-            .tabContent {
-                font-size: 0.88rem;
-                font-weight: 500;
-                text-align: center;
-                cursor: pointer;
-                color: $light-text-color;
-            }
-        }
     }
 }
 
