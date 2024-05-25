@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@800&family=Honk&family=Tourney:ital,wght@0,100..900;1,100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noticia+Text:ital,wght@0,400;0,700;1,400;1,700&family=Russo+One&display=swap');
+
+@import "../../sass/mixins";
+@import "../../sass/variables";
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Ubuntu Sans", sans-serif;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    cursor: default;
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
+
+.CandidatesPage {
+    min-height: 100vh;
+    background-image: url(../../assets/images/bg_candidates_page.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    z-index: 1;
+    &::before {
+        content: "";
+        position: absolute;
+        @include trbl(0, 0, 0, 0);
+        @include wh(100%, 100%);
+        background-color: rgba(0, 0, 0, 0.5);
+        -webkit-backdrop-filter: blur(8px);
+        filter: saturate(1.5);
+        backdrop-filter: blur(8px);
+        z-index: -1;
+    }
+}
+
+main {
+    @include wh(100%, fit-content);
+    @include flexing;
+
+    .heading {
+        color: white;
+        font: 500 6rem "Russo One", sans-serif;
+        padding: 3rem;
+    }
+
+    .group {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        padding: 0 5rem 5rem 5rem;
+        gap: 2.5rem;
+    }
+}
+
+@media (max-width: 1200px) {
+    main {
+        .group {
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+    }
+}
+
+@media (max-width: 750px) {
+    main {
+        .heading {
+            font-size: 4rem;
+        }
+        
+        .group {
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+    }
+}
