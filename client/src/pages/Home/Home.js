@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 
 function Home() {
   return <div>
-    <Navbar/>
+    <Navbar active="0"/>
     <div className="main-view">
       <div className="headRow">
         <div className="article">

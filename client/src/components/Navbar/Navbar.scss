@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@800&family=Honk&family=Tourney:ital,wght@0,100..900;1,100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noticia+Text:ital,wght@0,400;0,700;1,400;1,700&family=Russo+One&display=swap');
+
+@import "../../sass/mixins";
+@import "../../sass/variables";
+
+header {
+    position: relative;
+
+    #menuToggle {
+        display: none;
+        visibility: hidden;
+        &:checked~.side-nav {
+            transform: translateY(0);
+            box-shadow: 10px 0 15px rgba(0, 0, 0, 0.5);
+        }
+    }
+
+    .navbar {
+        @include flexing(row);
+        background-color: $nav-bgcolor;
+        @include wh(100%, 50px);
+        
+        .toggleMenu {
+            display: none;
+        }
+
+        .logo {
+            margin: 0 3rem 0 0;
+            padding: 0.65rem;
+            font-size: x-large;
+            font-weight: bolder;
+            color: black;
+            background-color: $primary-color;
+            font-family: "Azeret Mono", monospace;
+            cursor: pointer;
+        }
+    }
+}
+
+.links {
+    display: flex;
+    gap: 2.5rem;
+    margin: 0 auto 0 0;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+
+    a {
+        text-decoration: none;
+        color: $light-text-color;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        &:hover {
+            color: white;
+        }
+    }
+
+    .active {
+        color: $primary-color;
+    }
+}
+
+.side-nav {
+    display: none;
+    visibility: hidden;
+    @include wh(50%, fit-content);
+
+    .links {
+        flex-direction: column;
+        gap: 2rem;
+        a:hover {
+            background-color: var(--primary-color);
+            border-radius: 12px;
+            color: black;
+            padding: 5px;
+        }
+    }
+}
+
+@media (max-width: 750px) {
+    header {
+        #menuToggle {
+            display: block;
+            visibility: visible;
+            opacity: 0;
+            position: absolute;
+            scale: 1.8;
+            margin: 1rem 1rem;
+            border-radius: 0.2rem;
+            z-index: 1;
+        }
+
+        .navbar {
+            @include wh(100%, 50px);
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: $primary-color;
+            z-index: 3;
+    
+            .links {
+                display: none;
+            }
+    
+            .toggleMenu {
+                display: block;
+                margin-left: 0.75rem;
+                position: absolute;
+                color: black;
+                font-size: 1.5rem;
+                border-radius: 0.2rem;
+                box-shadow: 0 0 5px black;
+            }
+    
+            .logo {
+                @include wh(fit-content, 50px);
+                @include flexing;
+                margin: 0 auto;
+            }
+        }
+
+        .side-nav {
+            transform: translateY(-75vh);
+            transition: 0.2 ease-in;
+            z-index: 1;
+            position: absolute;
+            visibility: visible;
+            @include flexing;
+            background-color: $side-nav-bg-color;
+            padding: 20px 40px;
+        }
+    }
+}
