@@ -2,12 +2,12 @@ import React from "react";
 import './Home.scss'
 import Navbar from '../../components/Navbar/Navbar'
 import Footer from '../../components/Footer/Footer'
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (<div className="HomePage">
     <Navbar/>
-    <main>
+    <body>
       <div className="headRow">
         <div className="article">
           <div className="heading">Polling Day</div>
@@ -23,7 +23,7 @@ const Home = () => {
             architecto quaerat tenetur autem odio ex maxime sed! Cum autem illum
             perferendis tenetur ad quisquam, amet ducimus consequuntur! Lorem
             ipsum dolor sit amet consectetur, adipisicing elit.
-            <NavLink to={"/"} className="actionBtn">Get Started</NavLink>
+            <Link to={"/"} className="actionBtn">Get Started</Link>
           </div>
         </div>
       </div>
@@ -49,12 +49,12 @@ const Home = () => {
       </div>
       <div className="divider"></div>
       <div className="lastRow">
-        <NavLink to={"/parties"} className="tabs" target="_blank">Parties</NavLink>
-        <NavLink to={"/candidates"} className="tabs" target="_blank">Candidates</NavLink>
-        <NavLink to={"/voting"} className="tabs" target="_blank">Voting</NavLink>
-        <NavLink to={"/results"} className="tabs" target="_blank">Results</NavLink>
+        <Link to={"/parties"} className="tabs">Parties</Link>
+        <Link to={"/candidates"} className="tabs">Candidates</Link>
+        <Link to={"/voting"} className="tabs">Voting</Link>
+        <Link to={"/results"} className="tabs">Results</Link>
       </div>
-    </main>
+    </body>
     <Footer/>
   </div>);
 }
