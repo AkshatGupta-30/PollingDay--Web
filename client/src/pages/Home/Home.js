@@ -1,13 +1,13 @@
 import React from "react";
-import './Home.css'
+import './Home.scss'
 import Navbar from '../../components/Navbar/Navbar'
 import Footer from '../../components/Footer/Footer'
 import { NavLink } from "react-router-dom";
 
-function Home() {
-  return <div>
-    <Navbar active="0"/>
-    <div className="main-view">
+const Home = () => {
+  return (<div className="HomePage">
+    <Navbar/>
+    <body>
       <div className="headRow">
         <div className="article">
           <div className="heading">Polling Day</div>
@@ -49,14 +49,14 @@ function Home() {
       </div>
       <div className="divider"></div>
       <div className="lastRow">
-        <NavLink to={"/Parties"} className="tabs">Parties</NavLink>
-        <NavLink to={"/Candidates"} className="tabs">Candidates</NavLink>
-        <NavLink to={"/Voting"} className="tabs">Voting</NavLink>
-        <NavLink to={"/Results"} className="tabs">Results</NavLink>
+        <NavLink to={"/parties"} className="tabs" target="_blank">Parties</NavLink>
+        <NavLink to={"/candidates"} className="tabs" target="_blank">Candidates</NavLink>
+        <NavLink to={"/voting"} className="tabs" target="_blank">Voting</NavLink>
+        <NavLink to={"/results"} className="tabs" target="_blank">Results</NavLink>
       </div>
-    </div>
+    </body>
     <Footer/>
-  </div>;
+  </div>);
 }
 
 export default Home;

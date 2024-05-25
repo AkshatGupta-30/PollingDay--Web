@@ -1,0 +1,176 @@
+@import url("https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@800&family=Honk&family=Tourney:ital,wght@0,100..900;1,100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noticia+Text:ital,wght@0,400;0,700;1,400;1,700&family=Russo+One&display=swap');
+
+@import "../../sass/mixins";
+@import "../../sass/variables";
+
+
+@mixin btnHover {
+    color: black;
+    cursor: pointer;
+    transform: scale(0.95)
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Ubuntu Sans", sans-serif;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    cursor: default;
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
+
+.HomePage {
+    min-height: 100vh;
+    background-image: url(../../assets/images/bg_home_page.avif);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    z-index: 1;
+    &::before {
+        content: "";
+        position: absolute;
+        @include trbl(0, 0, 0, 0);
+        @include wh(100%, 100%);
+        background-color: rgba(0, 0, 0, 0.5);
+        -webkit-backdrop-filter: blur(8px);
+        filter: saturate(1.5);
+        backdrop-filter: blur(8px);
+        z-index: -1;
+    }
+
+    .headRow {
+        @include wh(100%, 75%);
+        padding: 2% 10% 4% 8%;
+        display: flex;
+    }
+
+    .divider {@include divider}
+
+    .article {
+        height: initial;
+        border-radius: 1rem;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+
+        .heading {
+            color: white;
+            font-family: "Russo One", sans-serif;
+            font-weight: 500;
+            font-size: 4rem;
+
+            span {
+                font-weight: 900;
+                color: $primary-color;
+            }
+        }
+
+        .content {
+            flex: 1;
+            overflow-y: auto;
+            color: $light-text-color;
+            font-family: "Noticia Text", serif;
+            font-size: large;
+            font-weight: 300;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: justify;
+
+            .actionBtn {
+                border-radius: 1rem;
+                background-color:$primary-color;
+                margin: 60px auto 0 0;
+                padding: 0.75rem 1.25rem;
+                font-size: 1rem;
+                font-weight: 900;
+                cursor: pointer;
+                color: black;
+                &:hover { @include btnHover}
+            }
+        }
+    }
+
+    .secondRow {
+        @include wh(100%, fit-content);
+        padding: 4% 8% 5% 10%;
+        position: relative;
+        display: flex;
+
+        .article {
+            .heading {
+                display: flex;
+                justify-content: end;
+            }
+        }
+    }
+
+    .lastRow {
+        background-color: var(--nav-bgcolor);
+        padding: 2rem 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: row;
+
+        .tabs {
+            background-color: $primary-color;
+            border-radius: 0.2rem;
+            position: relative;
+            @include flexing;
+            padding: 0.25rem 4rem;
+            font-size: 1.5rem;
+            font-weight: 900;
+            cursor: pointer;
+            color: black;
+            &:hover{@include btnHover}
+        }
+    }
+}
+
+@media (max-width: 1100px) {
+    .HomePage{
+        .lastRow {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            .tabs {
+                margin: 1rem 2.5rem;
+                padding: 0.5rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 650px) {
+    .HomePage{
+        .headRow, .secondRow {
+            padding: 1rem;
+
+            .article {
+                .heading {
+                    font-size: 2.25rem;
+                    span {font-weight: 900;}
+                }
+                .content {font-size: 0.9rem;}
+            }
+        }
+
+        .lastRow {
+            @include flexing;
+
+            .tabs {
+                @include wh(100%, fit-content);
+                margin: 1rem 2.5rem;
+                padding: 0.5rem;
+            }
+        }
+    }
+}
