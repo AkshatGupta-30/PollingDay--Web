@@ -7,7 +7,7 @@ import { NavLink } from "react-router-dom";
 const Home = () => {
   return (<div className="HomePage">
     <Navbar/>
-    <body>
+    <main>
       <div className="headRow">
         <div className="article">
           <div className="heading">Polling Day</div>
@@ -54,7 +54,7 @@ const Home = () => {
         <NavLink to={"/voting"} className="tabs" target="_blank">Voting</NavLink>
         <NavLink to={"/results"} className="tabs" target="_blank">Results</NavLink>
       </div>
-    </body>
+    </main>
     <Footer/>
   </div>);
 }
