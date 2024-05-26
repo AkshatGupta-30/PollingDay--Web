@@ -2,16 +2,11 @@ const express = require("express")
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const db = require("./src/database/connection")
-const partyRouter = require("./src/routes/Party")
-const candidateRouter = require("./src/routes/Candidate")
-const symbolRouter = require("./src/routes/Symbol")
 
 const app = express()
 app.use(cors())
 app.use(bodyParser.json())
-app.use("/parties", partyRouter)
-app.use("/candidates", candidateRouter)
-app.use("/symbols", symbolRouter) //TODO: Admin Control
+app.use(require("./src/routes/MainRoutes"))
 
 const port = process.env.port || 3001
 app.listen(port, () => {
