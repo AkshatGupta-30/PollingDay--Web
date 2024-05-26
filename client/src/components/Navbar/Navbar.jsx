@@ -26,16 +26,16 @@ class Navbar extends Component {
       <header>
         <input type="checkbox" id="menuToggle" />
         <div className="navbar">
-          {/* <div className="logo"> */}
-            <div className="toggleMenu">
-              <i className="bi bi-list"></i>
-            </div>
-            <NavLink to={"/"} className="logo">Polling Day</NavLink>
-          {/* </div> */}
+          <div className="toggleMenu">
+            <i className="bi bi-list"></i>
+          </div>
+          <NavLink to={"/"} className="logo">Polling Day</NavLink>
           <ul className="links">{this.renderNavItems()}</ul>
+          <NavLink to={"/auth/register"} className="loginBtn" id="loginWide">Login</NavLink>
         </div>
         <div className="side-nav">
           <ul className="links">{this.renderNavItems()}</ul>
+          <NavLink to={"/auth/register"} className="loginBtn" id="loginSmall">Login</NavLink>
         </div>
       </header>
     );

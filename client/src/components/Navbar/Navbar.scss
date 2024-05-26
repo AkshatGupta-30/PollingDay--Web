@@ -36,6 +36,21 @@ header {
             font-family: "Azeret Mono", monospace;
             cursor: pointer;
         }
+
+        .loginBtn {
+            @include wh(fit-content, fit-content);
+            @include flexing;
+            background-color: $primary-color;
+            margin: 0 2rem 0 auto;
+            border-radius: 2.5px;
+            padding: 0.25rem 0.75rem;
+            font: 900 1.25rem "Azeret Mono", monospace;
+            color: black;
+            cursor: pointer;
+            &:hover {
+                scale: 0.95;
+            }
+        }
     }
 }
 
@@ -46,7 +61,7 @@ header {
     text-transform: uppercase;
     letter-spacing: 1.5px;
 
-    a {
+    .a {
         text-decoration: none;
         color: $light-text-color;
         font-size: 1rem;
@@ -101,10 +116,6 @@ header {
             background-color: $primary-color;
             z-index: 3;
     
-            .links {
-                display: none;
-            }
-    
             .toggleMenu {
                 display: block;
                 margin-left: 0.75rem;
@@ -120,6 +131,14 @@ header {
                 @include flexing;
                 margin: 0 auto;
             }
+
+            .links {
+                display: none;
+            }
+
+            #loginWide {
+                display: none;
+            }
         }
 
         .side-nav {
@@ -131,6 +150,21 @@ header {
             @include flexing;
             background-color: $side-nav-bg-color;
             padding: 20px 40px;
+
+            .loginBtn {
+                @include wh(fit-content, fit-content);
+                @include flexing;
+                background-color: $primary-color;
+                margin: 1.5rem auto 0 0;
+                border-radius: 2.5px;
+                padding: 0.25rem 0.75rem;
+                font: 900 1.25rem "Azeret Mono", monospace;
+                color: black;
+                cursor: pointer;
+                &:hover {
+                    scale: 0.95;
+                }
+            }
         }
     }
 }
