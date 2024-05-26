@@ -12,10 +12,36 @@ const PartyRegistration = () => {
   let name, value;
 
   const changedValues = (ev) => {
-    console.log(ev.target.name + "  :  " + ev.target.value)
     name = ev.target.name;
     value = ev.target.value;
     setParty({...party, [name]:value})
+  };
+
+  const clearData = () => {
+    setParty({name: "", leader: "", leaderMobile: "", foundedYear: "", ideology: "", headquarter: "", numberOfMembers: ""})
+  };
+
+  const postData = async (event) => {
+    event.preventDefault();
+    const {name, leader, leaderMobile, foundedYear, ideology, headquarter, numberOfMembers} = party;
+    console.log(party)
+    const res = await fetch("/parties/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ name, leader, leaderMobile, foundedYear, ideology, headquarter, numberOfMembers })
+    });
+
+    const response = await res.json();
+
+    if(response.status === 500 || !response) {
+      window.alert("Invalid Registration")
+      console.log(response.error)
+    } else {
+      window.alert("Registration Successfull")
+      console.log("Registration Successfull")
+    }
   };
 
   return (
@@ -29,7 +55,7 @@ const PartyRegistration = () => {
           <label htmlFor="page_heading">Party Registration</label>
         </div>
         <div className="formSection">
-          <form>
+          <form method="POST">
             <div className="input-container">
               <input
                 type="text"
@@ -74,7 +100,7 @@ const PartyRegistration = () => {
             <div className="input-container">
               <input
                 type="number"
-                name="foundedear"
+                name="foundedYear"
                 placeholder="Founded Year"
                 autoComplete="off"
                 value={party.foundedYear}
@@ -126,10 +152,10 @@ const PartyRegistration = () => {
             </div>
 
             <div className="formButton">
-              <button type="reset" id="clear_all_btn">
+              <button type="reset" id="clear_all_btn" onClick={clearData}>
                 Clear All
               </button>
-              <button type="submit" id="register_btn">
+              <button type="submit" id="register_btn" onClick={postData}>
                 Register Party
               </button>
             </div>
