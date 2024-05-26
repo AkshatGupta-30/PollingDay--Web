@@ -6,8 +6,12 @@ const partySchema = new mongoose.Schema({
     required: true,
     unique: true
   },
-  leaderName: {
+  leader: {
     type: String,
+    required: true
+  },
+  leaderMobile: {
+    type: Number,
     required: true
   },
   foundedYear: {
@@ -15,19 +19,20 @@ const partySchema = new mongoose.Schema({
     default: Date.now
   },
   ideology: { type: String },
+  headquarter: { type: String },
+  numberOfMembers: {
+    type: Number,
+    required: true
+  },
   symbol: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Symbol',
     required: false
   },
-  numberOfMembers: {
-    type: Number,
-    required: true
-  },
   candidates: {
     type: [mongoose.Schema.Types.ObjectId],
     ref: 'Candidate',
-    required: true
+    required: false
   },
   facebook: { type: String, unique: true },
   twitter: { type: String, unique: true },
