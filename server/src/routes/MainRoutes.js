@@ -14,4 +14,7 @@ router.use("/candidates", require("./Candidate"))
 //* Symbols Route
 router.use("/symbols", require("./Symbol")) //TODO: Admin Control
 
+//* Authentication Route
+router.use("/auth", require("./Auth"))
+
 module.exports = router;
