@@ -2,7 +2,7 @@ const express = require('express')
 const Party = require('../models/party')
 const router = express.Router()
 
-router.post("/registration", async (req, res)=> {
+router.post("/register", async (req, res)=> {
     try {
         const data = req.body
         const newParty = new Party(data)
