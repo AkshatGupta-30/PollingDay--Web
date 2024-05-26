@@ -9,14 +9,14 @@ class Navbar extends Component {
     return (
       <li key={index}>
         <NavLink to={`/${content}`} className={className}>
-          {content}
+          {String(content)}
         </NavLink>
       </li>
     );
   };
 
   renderNavItems = () => {
-    const navItems = ["Parties", "Candidates", "Voting", "Results"];
+    const navItems = ["parties", "candidates", "voting", "results"];
     return (navItems.map((item, index) => this.pageRedirect(index, item)));
   }
 
