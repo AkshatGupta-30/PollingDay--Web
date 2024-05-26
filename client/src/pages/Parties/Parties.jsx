@@ -1,4 +1,5 @@
 import React from 'react'
+import { Outlet } from 'react-router-dom'
 import Navbar from '../../components/Navbar/Navbar'
 import Footer from '../../components/Footer/Footer'
 import RouteCard from '../../components/RouteCard/RouteCard'
@@ -12,8 +13,7 @@ const Parties = () => {
       <main>
           <div className="heading">Parties</div>
           <div className="group">
-            {/* //TODO: Add Route */}
-            <RouteCard route={"/"} Icon={Registration} label={"Political Party Registration"}>
+            <RouteCard route={"/parties/registration"} Icon={Registration} label={"Political Party Registration"}>
               Registration of new political parties under section 29 A of Representation of the People Act, 1951
             </RouteCard>
             {/* //TODO: Add Route */}

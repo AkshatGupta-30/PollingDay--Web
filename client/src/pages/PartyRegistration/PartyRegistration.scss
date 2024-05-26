@@ -1,0 +1,298 @@
+@import url("https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@800&family=Honk&family=Tourney:ital,wght@0,100..900;1,100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noticia+Text:ital,wght@0,400;0,700;1,400;1,700&family=Russo+One&display=swap');
+
+@import "../../sass/mixins";
+@import "../../sass/variables";
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Ubuntu Sans", sans-serif;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    cursor: default;
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
+
+.PartyRegistrationPage {
+    min-height: 100vh;
+    background-image: url(../../assets/images/bg_party_registration.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    z-index: 1;
+
+    &::before {
+        content: "";
+        position: absolute;
+        @include trbl(0, 0, 0, 0);
+        @include wh(100%, 100%);
+        background-color: rgba(0, 0, 0, 0.5);
+        -webkit-backdrop-filter: blur(8px);
+        filter: saturate(1.5);
+        backdrop-filter: blur(8px);
+        z-index: -1;
+    }
+}
+
+main {
+    @include wh(100%, fit-content);
+    min-height: calc(100vh - 50px - 70px - 35px);
+    @include flexing;
+
+    .heading {
+        width: 100%;
+        color: white;
+        padding: 1.5rem 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        gap: 2rem;
+
+        .backBtn {
+            background-color: rgba(256, 256, 256, 0.15);
+            color: $primary-color;
+            padding: 0.4rem;
+            border-radius: 50%;
+            font-size: 2rem;
+            font-weight: 900;
+            cursor: pointer;
+        }
+
+        label {
+            color: white;
+            font: 500 3rem "Russo One", sans-serif;
+        }
+    }
+
+    .formSection {
+        @include wh(90%, fit-content);
+        margin-bottom: 4rem;
+        background-color: rgba(245, 245, 245, 0.1);
+        border: 2px solid $primary-color;
+        border-top: 3rem solid $primary-color;
+        border-radius: 2rem;
+        padding: 2rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 5%;
+        position: relative;
+
+        &::before {
+            content: "\f31c Application Form";
+            font: 900 1.5rem "Font Awesome 6 Free";
+            position: absolute;
+            top: -2.85rem;
+            border-radius: 2rem;
+            background-color: var(--primary-color);
+            color: black;
+            padding: 0.5rem;
+        }
+
+        form {
+            @include wh(50%, fit-content);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+
+            .input-container {
+                @include flexing(row-reverse);
+                gap: 1rem;
+
+                .icon {
+                    background-color: rgba(245, 245, 245, 0.1);
+                    color: white;
+                    border: 2px solid var(--grey);
+                    border-radius: 10%;
+                    padding: 0.5rem;
+                    font-size: 1.5rem;
+                }
+
+                input {
+                    @include wh(100%, fit-content);
+                    background-color: rgba(245, 245, 245, 0.1);
+                    outline: 3px solid transparent;
+                    border: 3px solid var(--grey);
+                    border-radius: 50px;
+                    padding: 0.75rem;
+                    font-size: 1.5rem;
+                    color: white;
+                    cursor: text;
+
+                    &::placeholder {
+                        font-size: 1.25rem;
+                        color: $grey;
+                    }
+
+                    &:focus {
+                        border: 3px solid transparent;
+                        outline: 3px solid $primary-color;
+                        background-color: transparent;
+                    }
+
+                    &:focus+.icon {
+                        border-color: $primary-color;
+                        color: $primary-color;
+                    }
+                }
+
+            }
+
+            .formButton {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: end;
+                gap: 5%;
+
+                button {
+                    padding: 15px 20px;
+                    background-color: rgba(245, 245, 245, 0.1);
+                    border: 3px solid;
+                    border-radius: 50px;
+                    font-size: 1.1rem;
+                    font-weight: 600;
+                    cursor: pointer;
+                }
+
+                #clear_all_btn {
+                    color: white;
+
+                    &:hover {
+                        scale: 0.95;
+                    }
+                }
+
+                #register_btn {
+                    color: black;
+                    background-color: $primary-color;
+                    border-color: $primary-color;
+                    font-weight: 900;
+
+                    &:hover {
+                        scale: 0.95;
+                    }
+                }
+            }
+        }
+
+        .templateImage {
+            width: 50%;
+            position: relative;
+            overflow: hidden;
+
+            img {
+                object-fit: cover;
+                object-position: center;
+                @include wh(100%, 100%);
+                border-radius: 2rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 1100px) {
+    main {
+        .formSection {
+            form {
+                width: 65%;
+            }
+            .templateImage {
+                width: 35%;
+            }
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    main {
+        .formSection {
+            form {
+                width: 100%;
+            }
+            .templateImage {
+                display: none;
+                visibility: hidden;
+            }
+        }
+    }
+}
+
+@media (max-width: 750px) {
+    main {
+        .heading {
+            .backBtn {
+                font-size: 1.75rem;
+            }
+            label {
+                font-size: 2.75rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 650px) {
+    main {
+        .heading {
+            padding: 1.75rem 1.5rem;
+            gap: 1.25rem;
+            .backBtn {
+                font-size: 1.25rem;
+            }
+
+            label {
+                font-size: 1.75rem;
+            }
+        }
+
+        .formSection {
+            width: 85%;
+            border: 1px solid $primary-color;
+            border-top: 2.5rem solid $primary-color;
+            padding: 2rem 1rem;
+
+            &::before {
+                font-size: 1rem;
+                top: -2.25rem;
+                padding: 0.5rem;
+            }
+
+            form {
+                .input-container {
+                    gap: 0.75rem;
+
+                    .icon {
+                        border: 1.5px solid $grey;
+                        font-size: 1rem;
+                    }
+
+                    input {
+                        outline: 2.5px solid transparent;
+                        border: 2.5px solid $grey;
+                        padding: 0.65rem;
+                        font-size: 1rem;
+                    }
+                }
+
+                .formButton {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-evenly;
+
+                    button {
+                        width: fit-content;
+                        padding: 10px 15px;
+                        border: 2px solid;
+                    }
+                }
+            }
+        }
+    }
+}
