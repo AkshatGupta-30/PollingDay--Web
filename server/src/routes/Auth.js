@@ -74,4 +74,29 @@ router.post("/register", async (req, res) => {
   }
 });
 
+//* Login Voter
+router.post('/login', async (req, res) => {
+  try {
+      const { idField, password } = req.body;
+      
+      //* Finding voter from database
+      const isAadhar = await Voter.findOne({ aadhar: idField });
+      const isMobile = await Voter.findOne({ mobile: idField });
+
+      if (!isAadhar && !isMobile) {
+        return res.status(400).json({ error: "Invalid Credentials"});
+      }
+
+      const voter = (isAadhar) ? isAadhar : isMobile
+      if (voter.password != password) {
+          return res.status(401).json({ error: "Incorrect Password" });
+      }
+
+      res.status(200).json({response: "Login Successfull"});
+  } catch (err) {
+      console.log(err);
+      res.status(500).json({ error: err.toString() });
+  }
+})
+
 module.exports = router;
