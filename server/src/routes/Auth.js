@@ -66,8 +66,7 @@ router.post("/register", async (req, res) => {
 
     // * Saving new voter in database
     const response = await newVoter.save();
-    console.log("Data Saved");
-    res.status(200).json({ response: response });
+    res.status(200).json({ response: "Voter registered successfully" });
   } catch (err) {
     console.log("error: " + err);
     res.status(500).json({ error: err.toString() });
