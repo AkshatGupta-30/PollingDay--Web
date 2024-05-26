@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const crypto = require('crypto')
+const bcrypt = require("bcrypt")
 const Voter = require("../models/voters");
 
 //* Check if Voter role is admin or not
@@ -83,15 +84,21 @@ router.post('/login', async (req, res) => {
       const isMobile = await Voter.findOne({ mobile: idField });
 
       if (!isAadhar && !isMobile) {
-        return res.status(400).json({ error: "Invalid Credentials"});
+        // return res.status(400).json({ error: "Invalid Credentials"}); //TODO: Deployment comment removal
+        if(String(idField).length <= 10) {
+          return res.status(401).json({ error: "Invalid Phone Number"});
+        } else {
+          return res.status(401).json({ error: "Invalid Adhaar"});
+        }
       }
 
-      const voter = (isAadhar) ? isAadhar : isMobile
-      if (voter.password != password) {
-          return res.status(401).json({ error: "Incorrect Password" });
+      const voter = isAadhar ?? isMobile;
+      const isMatch = await bcrypt.compare(password, voter.password)
+      if (!isMatch) {
+        return res.status(401).json({ error: "Incorrect Password" });
+          // return res.status(401).json({ error: "Invalid Credentials" }); //TODO: Deployment comment removal
       }
-
-      res.status(200).json({response: "Login Successfull"});
+      res.status(200).json({response: "Login Successfull", voter: voter});
   } catch (err) {
       console.log(err);
       res.status(500).json({ error: err.toString() });
