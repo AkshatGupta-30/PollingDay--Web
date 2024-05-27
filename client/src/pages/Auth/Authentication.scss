@@ -46,6 +46,7 @@ form {
         justify-content: space-between;
         flex-direction: row;
         padding: 1rem;
+        transition: opacity 300ms ease-in-out;
 
         .tab {
             flex: 1;
@@ -79,12 +80,10 @@ form {
         &> div {
             @include wh(fit-content, fit-content);
             display: none;
-            transition: opacity 300ms ease-in-out 0ms;
         }
 
         &> div.active {
             @include flexing;
-            transition: opacity 300ms ease-in-out 0ms;
 
             .register {
                 display: grid;

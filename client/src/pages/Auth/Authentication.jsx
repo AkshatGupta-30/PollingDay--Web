@@ -1,12 +1,18 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Navbar from "../../components/Navbar/Navbar"
 import Footer from "../../components/Footer/Footer"
 import "./Authentication.scss"
 
 function Authentication() {
+  const [activeTab, setActiveTab] = useState('login');
+
+  const switchTab = (tab) => {
+    setActiveTab(tab);
+  };
+
   const Login = () => {
     return (
-      <div className="active">
+      <div className={activeTab === 'login' ? 'active' : 'inactive'}>
         <div className="form-input">
           <input type='number' required />
           <div className="underline"></div>
@@ -25,7 +31,7 @@ function Authentication() {
 
   const Register = () => {
     return (
-      <div className='inactive'>
+      <div className={activeTab === 'register' ? 'active' : 'inactive'}>
         <div className="register">
           <div className="form-input">
             <input type='text' required />
@@ -88,8 +94,8 @@ function Authentication() {
       <main>
         <form>
           <div className="tab-header">
-            <div className="active tab">login</div>
-            <div className='inactive tab'>register</div>
+            <div className={activeTab === 'login' ? 'active tab' : 'inactive tab'} onClick={() => switchTab('login')}>login</div>
+            <div className={activeTab === 'register' ? 'active tab' : 'inactive tab'} onClick={() => switchTab('register')}>register</div>
           </div>
           <div className="tab-body">
             <Login />
