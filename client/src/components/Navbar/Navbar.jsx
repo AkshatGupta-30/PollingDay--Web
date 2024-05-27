@@ -31,11 +31,11 @@ class Navbar extends Component {
           </div>
           <NavLink to={"/"} className="logo">Polling Day</NavLink>
           <ul className="links">{this.renderNavItems()}</ul>
-          <NavLink to={"/auth/register"} className="loginBtn" id="loginWide">Login</NavLink>
+          <NavLink to={"/auth"} className="loginBtn" id="loginWide">Login</NavLink>
         </div>
         <div className="side-nav">
           <ul className="links">{this.renderNavItems()}</ul>
-          <NavLink to={"/auth/register"} className="loginBtn" id="loginSmall">Login</NavLink>
+          <NavLink to={"/auth"} className="loginBtn" id="loginSmall">Login</NavLink>
         </div>
       </header>
     );
