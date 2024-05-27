@@ -7,3 +7,10 @@ $light-text-color: rgb(194, 206, 207);
 $grey: rgb(150, 150, 150);
 
 $svg-color: rgb(240, 255, 255);
+
+
+$navbar-height: 50px;
+$footer-height-wide: 120px;
+$footer-height-narrow: 81px;
+$min-main-height-for-wide: calc(100vh - ($navbar-height + $footer-height-wide));
+$min-main-height-for-narrow: calc(100vh - ($navbar-height + $footer-height-wide))
