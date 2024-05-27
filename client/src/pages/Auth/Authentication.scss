@@ -12,7 +12,7 @@ html::-webkit-scrollbar {
     display: none;
 }
 
-.RegistrationPage {
+.AuthenticationPage {
     min-height: 100vh;
     background-image: url(../../assets/backgrounds/bg2.jpeg);
     background-size: cover;
@@ -30,6 +30,10 @@ html::-webkit-scrollbar {
         filter: saturate(1.5);
         backdrop-filter: blur(8px);
         z-index: -1;
+    }
+
+    main{
+        min-height: $min-main-height-for-wide
     }
 }
 
@@ -141,6 +145,12 @@ form {
                     }
                 }
 
+                &[type="date"] {
+                    & + label{
+                        display: none;
+                    }
+                }
+
                 &::-webkit-calendar-picker-indicator {
                     filter: invert(1);
                     opacity: 0.5;
@@ -239,6 +249,37 @@ form {
             background-color: $primary-color;
             color: black;
             font-weight: 900;
+        }
+    }
+}
+
+
+@media (max-width: 650px) {
+    .AuthenticationPage {
+        main {
+            min-height: $min-main-height-for-narrow;
+        }
+    }
+
+    form {
+        margin: 3rem 1.5rem;
+        box-shadow: 0 2px 15px 15px rgba(255, 255,255, 0.4);
+
+        .tab-body {
+            padding: 1rem 2rem 2rem;
+            &> div.active{
+                .register {
+                    @include flexing
+                }
+            }
+
+            .form-input {
+                input {
+                    &[type="date"] + label {
+                        display: block;
+                    }
+                }
+            }
         }
     }
 }

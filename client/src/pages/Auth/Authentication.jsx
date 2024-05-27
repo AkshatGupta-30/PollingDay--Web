@@ -45,6 +45,7 @@ function Authentication() {
           </div>
           <div className="form-input">
             <input type='date' required />
+            <label>Date of Birth</label>
             <div className="underline"></div>
           </div>
           <div className="form-input">
@@ -89,7 +90,7 @@ function Authentication() {
   }
 
   return (
-    <div className='RegistrationPage'>
+    <div className='AuthenticationPage'>
       <Navbar />
       <main>
         <form>
