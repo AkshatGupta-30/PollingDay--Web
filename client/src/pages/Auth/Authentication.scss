@@ -37,7 +37,7 @@ html::-webkit-scrollbar {
     }
 }
 
-form {
+.form {
     @include wh(fit-content, fit-content);
     height: fit-content;
     background-color: rgba(50, 50, 50, 0.45);
@@ -261,7 +261,7 @@ form {
         }
     }
 
-    form {
+    .form {
         margin: 3rem 1.5rem;
         box-shadow: 0 2px 15px 15px rgba(255, 255,255, 0.4);
 

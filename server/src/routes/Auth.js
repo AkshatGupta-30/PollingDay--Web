@@ -98,7 +98,7 @@ router.post('/login', async (req, res) => {
         return res.status(401).json({ error: "Incorrect Password" });
           // return res.status(401).json({ error: "Invalid Credentials" }); //TODO: Deployment comment removal
       }
-      res.status(200).json({response: "Login Successfull", voter: voter});
+      res.status(200).json({response: "Login Successfull", status: 200, voter: voter});
   } catch (err) {
       console.log(err);
       res.status(500).json({ error: err.toString() });
